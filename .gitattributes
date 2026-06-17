@@ -1,0 +1,2 @@
+images/Projects/Weldon/GifOnMachine.gif !text !filter !merge !diff
+images/Projects/Weldon/GifOnMachine.gif filter=lfs diff=lfs merge=lfs -text
