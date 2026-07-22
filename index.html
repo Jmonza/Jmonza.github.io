@@ -1,1 +1,318 @@
-<header> header</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julian Monzavifar | Home</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="main-nav">
+    <div class="nav-left">
+        <!-- CHANGE THIS LINE -->
+        <span class="nav-name">Julian Monzavifar</span> 
+        <a href="https://www.linkedin.com/in/julian-monzavifar/" target="_blank" class="linkedin-icon">in</a>
+    </div>
+        <nav class="nav-right">
+            <a href="index.html" class="nav-item active">Home</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="resume.html" class="nav-item">Resume</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner Profile Section with 3-Image Collage Background -->
+   <section class="hero-section">
+    <div class="hero-collage-bg">
+        <div class="collage-pane collage-left">
+            <img src="images/Header/fiveAxisCam.png" alt="Header Left" class="hero-pane-img">
+        </div>
+        <div class="collage-pane collage-center">
+            <img src="images/Header/LuckyPic.jpg" alt="Header Center" class="hero-pane-img">
+        </div>
+        <div class="collage-pane collage-right">
+            <img src="images/Header/sittingOnCar.png" alt="Header Right" class="hero-pane-img">
+        </div>
+    </div>
+
+    <div class="hero-content">
+        <div class="profile-frame">
+            <img src="images/Profile.jpg" alt="Julian Monzavifar" class="avatar">
+        </div>
+        <h1 class="hero-title">Julian Monzavifar</h1>
+        <p class="hero-subtitle">Mechanical Engineering Student @ N.C. State</p>
+    <p class="hero-description">Experienceed in <strong>manufacturing, design, and analysis</strong> in  research and automotive competion</p>
+    </div>
+</section>
+
+    <!-- Content Workspace Grid -->
+    <div class="main-layout-grid">
+        
+        <!-- Left Column: CAD Blueprint Timeline -->
+        <section class="timeline-column">
+            <h2 class="section-title">// WORK HISTORY</h2>
+            <div class="vertical-timeline-wrapper">
+                <div class="timeline-date-guide" style="top: 15px;">Present</div>
+                <div class="timeline-date-guide" style="top: 240px;">Summer 2025</div>
+                <div class="timeline-date-guide" style="top: 450px;">Summer 2024</div>
+                <div class="timeline-date-guide" style="bottom: 10px;">High School</div>
+
+                <div class="rail-lane line-active-rail" style="left: 60px; height: 90%;"></div>
+                <div class="rail-lane line-active-rail" style="left: 76px; height: 35%;"></div>
+                <div class="rail-lane line-active-rail" style="left: 92px; height: 18%;"></div>
+                
+                <div class="rail-lane line-blueprint-rail" style="left: 108px; top: 245px; height: 120px;"></div>
+                <div class="rail-lane line-blueprint-rail" style="left: 108px; top: 455px; height: 120px;"></div>
+                <div class="rail-lane line-blueprint-rail" style="left: 60px; bottom: 0; height: 80px;"></div>
+                <div class="rail-lane line-blueprint-rail" style="left: 76px; bottom: 0; height: 50px;"></div>
+
+                <div class="timeline-cards-container">
+                    <div class="experience-node-row" style="margin-top: 0px; padding-left: 110px;">
+                        <div class="brand-item"><div class="nc-state-badge"><strong>NC STATE UNIVERSITY</strong> <span>Mechanical Engineering</span></div></div>
+                    </div>
+                    <div class="experience-node-row" style="margin-top: 25px; padding-left: 110px;">
+                        <div class="brand-item"><span class="brand-raw-text text-red">PACK MOTORSPORTS</span></div>
+                    </div>
+                    <div class="experience-node-row" style="margin-top: 35px; padding-left: 110px;">
+                        <div class="brand-item"><span class="brand-raw-text text-white font-large">CAMAL</span></div>
+                    </div>
+                    <div class="experience-node-row" style="margin-top: 135px; padding-left: 130px;">
+                        <div class="brand-item"><span class="brand-raw-text text-muted font-large font-bold">formlabs</span></div>
+                    </div>
+                    <div class="experience-node-row" style="margin-top: 165px; padding-left: 130px;">
+                        <div class="brand-item"><span class="brand-boxed-text">DMG MORI</span></div>
+                    </div>
+                    <div class="experience-node-row" style="margin-top: 160px; padding-left: 110px;">
+                        <div class="brand-item-sub"><span class="sub-institution">North Carolina School of Science and Mathematics</span></div>
+                    </div>
+                    <div class="experience-node-row" style="margin-top: 25px; padding-left: 110px;">
+                        <div class="brand-item-sub"><span class="sub-institution text-muted">Valence Robotics</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Projects & Tools Matrix -->
+        <div class="showcase-column">
+            <section class="sub-showcase-section">
+    <h2 class="section-title">// FEATURED PROJECTS (SCROLL OR AUTO-LOOP)</h2>
+    
+    <div class="carousel-stage-container">
+        <div class="carousel-scroll-track" id="julianCarouselTrack">
+            
+            <!-- Project 1 -->
+            <div class="carousel-card-item">
+                <a href="bajaAxle.html" class="carousel-item-link">
+                    <div class="project-matrix-card">
+                        <img src="images/Projects/yokes/AxleInCar.jpeg" alt="Baja Axle">
+                        <div class="card-title-overlay">Baja SAE Axle</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="carousel-card-item">
+                <a href="5-Axis.html" class="carousel-item-link">
+                    <div class="project-matrix-card">
+                        <img src="images/Projects/CVT/CVTInMachine.png" alt="5-Axis Machining">
+                        <div class="card-title-overlay">5-Axis Machining</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="carousel-card-item">
+                <a href="3-Axis.html" class="carousel-item-link">
+                    <div class="project-matrix-card">
+                        <img src="images/Projects/Steering/SteeringInMachine.png" alt="3-Axis Machining">
+                        <div class="card-title-overlay">3-Axis Machining</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Project 4 (Seamless loop clone buffer) -->
+            <div class="carousel-card-item">
+                <a href="utilizationDevice.html" class="carousel-item-link">
+                    <div class="project-matrix-card">
+                        <img src="images/Projects/Weldon/CoverPic.png" alt="Utilization Tracking">
+                        <div class="card-title-overlay">Utilization Tracking Device</div>
+                    </div>
+                </a>
+            </div>
+            <div class="carousel-card-item">
+                <a href="FRCRobot.html" class="carousel-item-link">
+                    <div class="project-matrix-card">
+                        <img src="images/Projects/Robotics/RobotCoverPic.jpg" alt="FRC Robot">
+                        <div class="card-title-overlay">FIRST Robotics</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Inline script handling hardware scrolling calculations -->
+    <script>
+        const track = document.getElementById('julianCarouselTrack');
+        
+        // Auto-loop engine moving left to right every 3.5 seconds
+        let autoScrollTimer = setInterval(() => {
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (track.scrollLeft >= maxScroll - 5) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Calculate next card step width
+                const cardWidth = track.firstElementChild.offsetWidth;
+                track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        }, 3500);
+
+        // Instantly kills auto-scrolling if the user begins manually swiping/scrolling
+        const killAutoPlay = () => clearInterval(autoScrollTimer);
+        track.addEventListener('mousedown', killAutoPlay, { passive: true });
+        track.addEventListener('touchstart', killAutoPlay, { passive: true });
+    </script>
+</section>
+        <!-- Right Column: Machinery & Lab Tools Matrix Carousel -->
+        <div class="showcase-column">
+            <section class="sub-showcase-section" style="margin-top: 40px;">
+                <h2 class="section-title">// MACHINERY & LAB TOOLS (SCROLL OR AUTO-LOOP)</h2>
+                
+                <div class="carousel-stage-container">
+                    <!-- Unique ID track to ensure independent movement -->
+                    <div class="carousel-scroll-track" id="julianMachineTrack">
+                        
+                        <!-- Machine 1 -->
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/UMC500.png" alt="HAAS UMC500">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>HAAS UMC500</h4>
+                                        <p>5-Axis CNC Mill</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Machine 2 -->
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/VF3.png" alt="VF3">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>HAAS VF3</h4>
+                                        <p>3-Axis CNC Mill</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Machine 3 -->
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/VF2.png" alt="HAAS VF2">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>HAAS VF2</h4>
+                                        <p>3-Axis CNC Mill</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Machine 4 (Seamless loop clone buffer) -->
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/ST-10.png" alt="HAAS ST-10">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>HAAS ST-10</h4>
+                                        <p>CNC Lathe</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/MPC2000.png" alt="Messer MPC2000">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>Messer MPC2000</h4>
+                                        <p>Plasma Cutter</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Machine 5 (Seamless loop clone buffer) -->
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/Fablight 4500.png" alt="Fablight 4500">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>Fablight 4500</h4>
+                                        <p>CNC Laser Cutter</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Machine 6 (Seamless loop clone buffer) -->
+                        <div class="carousel-card-item">
+                            <a href="projects.html" class="carousel-item-link">
+                                <div class="tool-matrix-card">
+                                    <div class="blueprint-frame">
+                                        <img src="images/machines Used/X2D.png" alt="Bambu X2D">
+                                    </div>
+                                    <div class="tool-meta">
+                                        <h4>Bambu X2D</h4>
+                                        <p>3D Printer</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Self-contained scrolling calculation logic -->
+                <script>
+                    const machineTrack = document.getElementById('julianMachineTrack');
+                    
+                    // Runs an auto-scroll rotation cycle every 4 seconds
+                    let machineAutoScrollTimer = setInterval(() => {
+                        const maxScroll = machineTrack.scrollWidth - machineTrack.clientWidth;
+                        if (machineTrack.scrollLeft >= maxScroll - 5) {
+                            machineTrack.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            const cardWidth = machineTrack.firstElementChild.offsetWidth;
+                            machineTrack.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                        }
+                    }, 4000);
+
+                    // Instantly yields tracking control to user gesture input
+                    const killMachineAutoPlay = () => clearInterval(machineAutoScrollTimer);
+                    machineTrack.addEventListener('mousedown', killMachineAutoPlay, { passive: true });
+                    machineTrack.addEventListener('touchstart', killMachineAutoPlay, { passive: true });
+                </script>
+            </section>
+        </div> <!-- Closes showcase-column -->
+    </div> <!-- Closes main-layout-grid -->
+</body>
+</html>
