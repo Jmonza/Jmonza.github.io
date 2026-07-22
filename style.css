@@ -1,0 +1,561 @@
+/* ==========================================================================
+   1. CORE VARIABLES, RESET, & GLOBAL LAYOUT
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0a0a0c;
+    color: #e2e8f0;
+    padding-bottom: 100px;
+    width: 100%;
+    overflow-x: hidden; /* Hard safety gate to stop whole-page horizontal bleeding */
+}
+
+.main-layout-grid {
+    display: grid;
+    grid-template-columns: 420px minmax(0, 1fr); /* minmax(0, 1fr) permits columns to scale smaller than their content */
+    gap: 60px;
+    max-width: 1400px;
+    margin: 50px auto 0 auto;
+    padding: 0 4%;
+    width: 100%;
+}
+
+.main-layout-grid-full {
+    max-width: 1400px;
+    margin: 50px auto 0 auto;
+    padding: 0 4%;
+    width: 100%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   2. FLOATING NAVIGATION HEADER (Sticky Viewport Layer)
+   ========================================================================== */
+.main-nav {
+    position: fixed; /* Makes the navbar stay locked in place as you scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px; /* Fixed control height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(5, 5, 7, 0.9); /* Slight transparency for a premium feel */
+    backdrop-filter: blur(10px); /* Blurs content behind the navbar as it passes underneath */
+    padding: 0 8%;
+    border-bottom: 1px solid #1a1a24;
+    z-index: 9999; /* Guarantees navigation sits above every background, collage, and photo */
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #ffffff;
+}
+
+.linkedin-icon {
+    background-color: #e2e8f0;
+    color: #050507;
+    font-weight: 900;
+    font-size: 0.75rem;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.nav-right {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-item {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+}
+
+.nav-item.active {
+    color: #e11d48;
+    border-bottom-color: #cc0000;
+}
+
+/* ==========================================================================
+   3. HERO SECTION W/ 3-IMAGE COLLAGE BACKGROUND
+   ========================================================================== */
+/* ==========================================================================
+   3. HERO SECTION W/ 3-IMAGE COLLAGE BACKGROUND (DOUBLED HEIGHT)
+   ========================================================================== */
+/* ==========================================================================
+   3. HERO SECTION W/ 3-IMAGE COLLAGE BACKGROUND
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 760px;
+    margin-top: 55px;
+    padding: 40px 4%;
+    border-bottom: 1px solid #1a1a24;
+    overflow: hidden;
+}
+
+/* Absolute container spanning the full width & height */
+.hero-collage-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    /* Keeps equal 3-column split spanning 100% width */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    z-index: 1;
+}
+
+/* Strict bounding box for each collage pane */
+.collage-pane {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.collage-pane:last-child {
+    border-right: none;
+}
+
+/* Fits images proportionally and forces PERFECT DEAD-CENTER alignment */
+.hero-pane-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; /* Locks focus point strictly to the center of the image */
+    display: block;
+    filter: brightness(0.7) contrast(1.05);
+}
+
+/* Floating content layer above the images */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 650px;
+    pointer-events: auto;
+}
+
+.profile-frame {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid #334155;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    text-decoration: underline;
+    text-decoration-color: white; /* Optional: Sets color (e.g., NC State Red) */
+    text-underline-offset: 6px;      /* Adds breathing room between text and line */
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: #ffffff; 
+    line-height: 1.5;
+}
+
+.hero-description strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* ==========================================================================
+   4. VERTICAL TRACK SYSTEM TIMELINE (Thin Blueprint Lines)
+   ========================================================================== */
+.vertical-timeline-wrapper {
+    position: relative;
+    min-height: 750px;
+}
+
+.timeline-date-guide {
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+    color: #475569;
+    font-weight: 600;
+    width: 50px;
+    text-align: right;
+    line-height: 1;
+}
+
+.rail-lane {
+    position: absolute;
+    width: 0px;
+    z-index: 1;
+}
+
+.line-active-rail { 
+    border-left: 1px solid #cc0000; 
+    filter: drop-shadow(0 0 2px rgba(204,0,0,0.4));
+}
+
+.line-blueprint-rail { 
+    border-left: 1px dashed #2d3748; 
+}
+
+.timeline-cards-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-node-row {
+    display: flex;
+    align-items: center;
+}
+
+.nc-state-badge {
+    border: 1px solid #cc0000;
+    background-color: rgba(204, 0, 0, 0.05);
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.nc-state-badge strong {
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: #cc0000;
+}
+
+.brand-raw-text {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.brand-raw-text.text-red { color: #cc0000; }
+.brand-raw-text.text-white { color: #ffffff; }
+.brand-raw-text.text-muted { color: #64748b; }
+
+.font-large { font-size: 1.15rem; }
+.font-bold { font-weight: 700; }
+
+.brand-boxed-text {
+    border: 1px solid #334155;
+    background-color: #111115;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 5px 14px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+}
+
+.brand-boxed-text:hover {
+    background-color: #1e293b;
+}
+
+.brand-item-sub {
+    max-width: 250px;
+}
+
+.sub-institution {
+    font-size: 0.8rem;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. SHOWCASE MATRICES & RESUME COMPONENTS
+   ========================================================================== */
+.matrix-grid-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.project-matrix-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Gives your horizontal project cards clean proportions */
+    background-color: #0f0f13;
+    border: 1px solid #1e293b;
+    overflow: hidden;
+}
+
+.project-matrix-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    display: block;
+}
+
+.project-matrix-card:hover img {
+    opacity: 0.9;
+}
+
+.card-title-overlay {
+    position: absolute;
+    bottom: 0;
+    inset-x: 0;
+    background: linear-gradient(to top, #0a0a0c 0%, rgba(10,10,12,0.6) 80%, transparent 100%);
+    padding: 15px 12px 12px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+.matrix-grid-triple.align-bottom {
+    align-items: flex-end;
+}
+
+.tool-matrix-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.blueprint-frame {
+    border: 1px dashed #23232f;
+    background-color: #0f0f13;
+    padding: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Controls the machine container frames uniformly */
+    overflow: hidden;
+}
+
+.tool-matrix-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps machines fully visible without stretching */
+    display: block;
+}
+
+.tool-meta h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.tool-meta p {
+    font-size: 0.75rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.resume-frame-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.pdf-container-box {
+    width: 100%;
+    height: 500px;
+    border: 1px dashed #2d3748;
+    background-color: #0f0f13;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE ADAPTIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .main-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .matrix-grid-triple {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 0 4%;
+    }
+    .nav-right {
+        gap: 20px;
+    }
+
+    /* --- HERO SECTION MOBILE FIXES --- */
+    .hero-section {
+        height: 500px; /* Gives the hero section proper vertical height on phone screens */
+        padding: 30px 5%;
+    }
+
+    .hero-collage-bg {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hide outer photos; keep ONLY the center edited photo visible */
+    .collage-left, 
+    .collage-right {
+        display: none !important;
+    }
+
+    .collage-center {
+        display: block !important;
+        width: 100%;
+        height: 100%;
+        border-right: none;
+    }
+
+    .collage-center .hero-pane-img {
+        object-fit: cover;
+        object-position: center top; /* Keeps you in frame at the top center */
+    }
+
+    .hero-overlay {
+        display: none !important; /* Removes the dark box turning the screen black */
+    }
+    /* ---------------------------------- */
+
+    .matrix-grid-triple {
+        grid-template-columns: 1fr;
+    }
+    .carousel-card-item {
+        flex: 0 0 85% !important; /* On mobile devices, elements scale larger for swipe ease */
+    }
+}
+
+
+/* ==========================================================================
+   7. INTERACTIVE HORIZONTAL CAROUSEL SYSTEM
+   ========================================================================== */
+.showcase-column {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel-stage-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #070709;
+    border: 1px solid #161e2b;
+    padding: 15px 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.carousel-scroll-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    width: 100%;
+    /* Forces physics-based desktop/mobile snapping mechanics */
+    scroll-snap-type: x mandatory; 
+    scrollbar-width: none; /* Hides tracking bars on Firefox */
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-scroll-track::-webkit-scrollbar {
+    display: none; /* Hides tracking bars on Chrome, Safari, and Edge */
+}
+
+/* Base carousel cards adapt seamlessly into the grid column widths */
+.carousel-card-item {
+    flex: 0 0 calc(33.333% - 10px); 
+    min-width: 200px; /* Protects legible card sizes on smaller layout panels */
+    scroll-snap-align: start;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.carousel-item-link {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Subtle feedback scale when interacting with specific targets */
+.carousel-card-item:hover {
+    transform: translateY(-2px);
+}
+
+.carousel-card-item:hover .project-matrix-card {
+    border-color: #e11d48;
+}
+
+
