@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilization Tracking Device | Julian Monzavifar</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Main Navigation Header -->
+    <header class="main-nav">
+        <div class="nav-left">
+            <span class="nav-name">Julian Monzavifar</span>
+            <a href="https://www.linkedin.com/in/julian-monzavifar/" target="_blank" class="linkedin-icon">in</a>
+        </div>
+        <nav class="nav-right">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="projects.html" class="nav-item active">Projects</a>
+            <a href="resume.html" class="nav-item">Resume</a>
+        </nav>
+    </header>
+
+    <!-- Main Project Wrapper -->
+    <div class="project-container">
+        
+        <!-- Top Title Section -->
+        <section class="project-header-section">
+            <h1 class="section-title" style="font-size: 2.2rem; color: #ffffff; margin-bottom: 8px;">
+            UTILIZATION TRACKING DEVICE
+            </h1>
+            <p style="color: #64748b; font-size: 1.05rem; max-width: 700px;">
+                Machine Tracking for Process Improvement at Weldon Steel
+            </p>
+        </section>
+
+        <!-- Split Grid: Sticky Sidebar + Main Content -->
+        <div class="project-content-grid">
+            
+            <!-- Left Sticky Sidebar -->
+            <aside class="skills-sidebar-container">
+                <h3 class="skills-heading">Applied Skills</h3>
+                <ul class="skills-list">
+                    <li>Operations research</li>
+                    <li>Process improvement</li>
+                    <li>SolidWorks CAD</li>
+                    <li>Circuit design</li>
+                    
+                </ul>
+            </aside>
+
+            <!-- Right Main Project Body -->
+            <main class="project-main-body">
+
+                <!-- Section 1 -->
+                <!-- Section 1 -->
+<div class="project-story-block">
+    <div class="story-text">
+        <p>During my time as an intern at Weldon Steel One of my projects was improving the utilization of their Messer plasma table.
+</p>
+    </div>
+        <div class="story-image-frame">
+            <img src="images/Projects/Weldon/CoverPic.png" 
+                alt="Utilization Device CAD" 
+                class="story-img" 
+                style="object-fit: contain; padding: 12px;">
+        </div>
+    </div>
+
+                <!-- Section 2 -->
+                <div class="project-story-block image-left">
+                    <div class="story-text">
+                        <p>As part of the time study, I created a device to automate the collection of the Messer table utilization.</p>
+                    </div>
+                    <div class="story-image-frame">
+                        <img src="images/Projects/Weldon/WeldonCAD.png" alt="" class="story-img">
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="project-story-block">
+                    <div class="story-text">
+                        <p> With an esp32 microcontroller with an accelerometer sensor and real time clock, the device detects movement of the laser gantry and logs the resulting data to a file that can be downloaded by connecting to the microcontroller Wi-Fi network or by physical cable.</p>
+                    </div>
+                    <div class="story-image-frame">
+                        <img src="images/Projects/Weldon/WithWires.png" alt="Wired device" class="story-img">
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="project-story-block image-left">
+                    <div class="story-text">
+                        <p>The device would write to a CSV file when movement was detected. I then created a Matlab script that created daily utilization percentages. From May-June the device was deployed.</p>
+                    </div>
+                    <div class="story-image-frame">
+                        <img src="images/Projects/Weldon/DailyUtilization.png" alt="MATLAB graph" class="story-img">
+                    </div>
+                </div>
+
+                <div class="project-story-block">
+                    <div class="story-text">
+                        <p>Using the collected data alongside observations of machine operations, I was able to correlate operational inefficiency with an associated downtime percentage from the monitoring device, and create a planned course of action for the process improvement with an estimated 30% increase of efficiency.</p>
+                    </div>
+                    <div class="story-image-frame">
+                        <img src="images/Projects/Weldon/gifOnMachine.gif" alt="Machine running" class="story-img">
+                    </div>
+                </div>
+
+                <!-- Section 5 (Centered Text Only) -->
+<div style="text-align: center; max-width: 700px; margin: 50px auto 30px auto; padding: 0 20px;">
+    <p style="font-size: 1.05rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 12px; text-align: center;">
+        Thank you for the team at Weldon Steel giving me an amazing summer intern expierence!
+    </p>
+    
+</div>
+            </main>
+
+        </div>
+    </div>
+
+    <footer class="simple-footer">
+        <p>Reach out to me at <a href="mailto:jrmonzav@ncsu.edu" class="footer-email">jrmonzav@ncsu.edu</a></p>
+    </footer>
+
+</body>
+</html>

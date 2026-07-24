@@ -9,16 +9,16 @@
 }
 
 body {
-    background-color: #0a0a0c;
+    background-color: #1a1c23;
     color: #e2e8f0;
     padding-bottom: 100px;
     width: 100%;
-    overflow-x: hidden; /* Hard safety gate to stop whole-page horizontal bleeding */
+    overflow-x: hidden; /* Hard safety gate to stop horizontal scroll */
 }
 
 .main-layout-grid {
     display: grid;
-    grid-template-columns: 420px minmax(0, 1fr); /* minmax(0, 1fr) permits columns to scale smaller than their content */
+    grid-template-columns: 420px minmax(0, 1fr);
     gap: 60px;
     max-width: 1400px;
     margin: 50px auto 0 auto;
@@ -44,25 +44,26 @@ body {
     color: #64748b;
     margin-bottom: 35px;
     letter-spacing: 1px;
+    padding-top: 20px;
 }
 
 /* ==========================================================================
    2. FLOATING NAVIGATION HEADER (Sticky Viewport Layer)
    ========================================================================== */
 .main-nav {
-    position: fixed; /* Makes the navbar stay locked in place as you scroll */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 55px; /* Fixed control height */
+    height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(5, 5, 7, 0.9); /* Slight transparency for a premium feel */
-    backdrop-filter: blur(10px); /* Blurs content behind the navbar as it passes underneath */
+    background-color: rgba(70, 70, 92, 0.9);
+    backdrop-filter: blur(10px);
     padding: 0 8%;
     border-bottom: 1px solid #1a1a24;
-    z-index: 9999; /* Guarantees navigation sits above every background, collage, and photo */
+    z-index: 9999;
 }
 
 .nav-left {
@@ -120,23 +121,16 @@ body {
 /* ==========================================================================
    3. HERO SECTION W/ 3-IMAGE COLLAGE BACKGROUND
    ========================================================================== */
-/* ==========================================================================
-   3. HERO SECTION W/ 3-IMAGE COLLAGE BACKGROUND (DOUBLED HEIGHT)
-   ========================================================================== */
-/* ==========================================================================
-   3. HERO SECTION W/ 3-IMAGE COLLAGE BACKGROUND
-   ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 760px;
+    height: 550px;
     margin-top: 55px;
     padding: 40px 4%;
     border-bottom: 1px solid #1a1a24;
     overflow: hidden;
 }
 
-/* Absolute container spanning the full width & height */
 .hero-collage-bg {
     position: absolute;
     top: 0;
@@ -144,13 +138,11 @@ body {
     width: 100%;
     height: 100%;
     display: grid;
-    /* Keeps equal 3-column split spanning 100% width */
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
     z-index: 1;
 }
 
-/* Strict bounding box for each collage pane */
 .collage-pane {
     position: relative;
     width: 100%;
@@ -163,17 +155,15 @@ body {
     border-right: none;
 }
 
-/* Fits images proportionally and forces PERFECT DEAD-CENTER alignment */
 .hero-pane-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center; /* Locks focus point strictly to the center of the image */
+    object-position: center center;
     display: block;
     filter: brightness(0.7) contrast(1.05);
 }
 
-/* Floating content layer above the images */
 .hero-content {
     position: relative;
     z-index: 3;
@@ -205,20 +195,19 @@ body {
     color: #ffffff;
     letter-spacing: -0.5px;
     text-decoration: underline;
-    text-decoration-color: white; /* Optional: Sets color (e.g., NC State Red) */
-    text-underline-offset: 6px;      /* Adds breathing room between text and line */
+    text-decoration-color: white;
+    text-underline-offset: 6px;
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
     color: #ffffff;
     margin-bottom: 15px;
-    
 }
 
 .hero-description {
     font-size: 1.05rem;
-    color: #ffffff; 
+    color: #ffffff;
     line-height: 1.5;
 }
 
@@ -227,127 +216,138 @@ body {
     font-weight: 600;
 }
 
-
 /* ==========================================================================
-   4. VERTICAL TRACK SYSTEM TIMELINE (Thin Blueprint Lines)
+   4. VERTICAL PILLAR TRACK TIMELINE
    ========================================================================== */
-.vertical-timeline-wrapper {
+.timeline-column {
     position: relative;
-    min-height: 750px;
+    width: 100%;
 }
 
+.vertical-timeline-wrapper {
+    position: relative;
+    height: 700px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.vertical-timeline-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    top: 0;
+    pointer-events: none;
+    z-index: 10;
+    background: linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 250px,
+        #1a1c23 250px, #1a1c23 260px,
+        transparent 260px,
+        transparent 340px,
+        #1a1c23 340px, #1a1c23 350px,
+        transparent 350px
+    );
+}
+
+/* Date Guides */
 .timeline-date-guide {
     position: absolute;
     left: 0;
     font-size: 0.75rem;
-    color: #475569;
-    font-weight: 600;
-    width: 50px;
+    font-weight: 700;
+    color: #64748b;
     text-align: right;
-    line-height: 1;
+    width: 60px;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
 }
 
-.rail-lane {
+.guide-present      { top: 120px; }
+.guide-summer-26   { top: 280px; }
+.guide-summer-25   { top: 560px; }
+.guide-high-school  { bottom: 20px; }
+
+/* Pillars Base & Styles */
+.pillar {
     position: absolute;
-    width: 0px;
-    z-index: 1;
+    width: 14px;
+    border-radius: 3px;
 }
 
-.line-active-rail { 
-    border-left: 1px solid #cc0000; 
-    filter: drop-shadow(0 0 2px rgba(204,0,0,0.4));
+.pillar-red   { background-color: #d32f2f; }
+.pillar-blue  { background-color: #1976d2; }
+.pillar-white { background-color: #ffffff; }
+.pillar-slate { background-color: #475569; }
+.pillar-amber { background-color: #d32f2f; }
+
+/* Pillar Positions */
+.pillar-1 { left: 80px; top: 20px; height: 550px; }
+.pillar-2 { left: 102px; top: 80px; height: 490px; }
+.pillar-3 { left: 124px; top: 150px; height: 420px; }
+.pillar-mid-1 { left: 146px; top: 260px; height: 80px; }
+
+.pillar-hs-1 { left: 80px; bottom: 10px; height: 100px; }
+.pillar-hs-2 { left: 102px; bottom: 10px; height: 60px; }
+
+/* Floating Logos */
+.timeline-logos-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.line-blueprint-rail { 
-    border-left: 1px dashed #2d3748; 
-}
-
-.timeline-cards-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.experience-node-row {
+.logo-node {
+    position: absolute;
     display: flex;
     align-items: center;
 }
 
-.nc-state-badge {
-    border: 1px solid #cc0000;
-    background-color: rgba(204, 0, 0, 0.05);
-    color: #ffffff;
-    padding: 8px 12px;
-    font-size: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-    line-height: 1.3;
+.timeline-logo {
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
-.nc-state-badge strong {
-    font-weight: 900;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    color: #cc0000;
-}
-
-.brand-raw-text {
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-}
-
-.brand-raw-text.text-red { color: #cc0000; }
-.brand-raw-text.text-white { color: #ffffff; }
-.brand-raw-text.text-muted { color: #64748b; }
-
-.font-large { font-size: 1.15rem; }
-.font-bold { font-weight: 700; }
-
-.brand-boxed-text {
-    border: 1px solid #334155;
-    background-color: #111115;
-    color: #ffffff;
-    font-weight: 700;
-    padding: 5px 14px;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s;
-}
-
-.brand-boxed-text:hover {
-    background-color: #1e293b;
-}
-
-.brand-item-sub {
-    max-width: 250px;
-}
-
-.sub-institution {
-    font-size: 0.8rem;
-    color: #475569;
-    font-weight: 500;
-    line-height: 1.4;
-}
+.node-ncsu   { top: 20px; left: 110px; }
+.node-baja   { top: 85px; left: 132px; }
+.node-camal  { top: 155px; left: 154px; }
+.node-weldon { top: 280px; left: 176px; }
+.node-ncssm  { bottom: 75px; left: 100px; }
+.node-frc    { bottom: 30px; left: 130px; }
 
 /* ==========================================================================
    5. SHOWCASE MATRICES & RESUME COMPONENTS
    ========================================================================== */
+.showcase-column {
+    max-width: 100%;
+    overflow: hidden;
+}
+
 .matrix-grid-triple {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
+.matrix-grid-triple.align-bottom {
+    align-items: flex-end;
+}
+
 .project-matrix-card {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10; /* Gives your horizontal project cards clean proportions */
-    background-color: #0f0f13;
-    border: 1px solid #1e293b;
+    aspect-ratio: 4 / 3;
+    background-color: transparent;
+    border: 2px solid #1e293b;
     overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.project-matrix-card:hover {
+    border-color: #e11d48 !important;
 }
 
 .project-matrix-card img {
@@ -375,10 +375,6 @@ body {
     color: #ffffff;
 }
 
-.matrix-grid-triple.align-bottom {
-    align-items: flex-end;
-}
-
 .tool-matrix-card {
     display: flex;
     flex-direction: column;
@@ -386,22 +382,22 @@ body {
 }
 
 .blueprint-frame {
-    border: 1px dashed #23232f;
-    background-color: #0f0f13;
+    border: 2px solid #1e293b;
+    background-color: transparent;
     padding: 10px;
     margin-bottom: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    aspect-ratio: 4 / 3; /* Controls the machine container frames uniformly */
+    aspect-ratio: 4 / 3;
     overflow: hidden;
 }
 
 .tool-matrix-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Keeps machines fully visible without stretching */
+    object-fit: contain;
     display: block;
 }
 
@@ -428,7 +424,7 @@ body {
     width: 100%;
     height: 500px;
     border: 1px dashed #2d3748;
-    background-color: #0f0f13;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -438,13 +434,89 @@ body {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE ADAPTIVE BREAKPOINTS
+   6. INTERACTIVE HORIZONTAL CAROUSEL SYSTEM
+   ========================================================================== */
+.carousel-stage-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    border: 1px solid #161e2b;
+    padding: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.carousel-scroll-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-scroll-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-card-item {
+    flex: 0 0 calc(33.333% - 10px);
+    min-width: 200px;
+    scroll-snap-align: start;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.carousel-card-item:hover {
+    transform: translateY(-2px);
+}
+
+.carousel-item-link {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.simple-footer {
+    width: 100%;
+    margin-top: 60px;
+    padding: 25px 0 30px 0;
+    border-top: 1px solid #2b2d35;
+    text-align: center;
+}
+
+.simple-footer p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.footer-email {
+    color: #e2e8f0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+    color: #e11d48;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
     .main-layout-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
         gap: 50px;
     }
+
     .matrix-grid-triple {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -454,13 +526,13 @@ body {
     .main-nav {
         padding: 0 4%;
     }
+
     .nav-right {
         gap: 20px;
     }
 
-    /* --- HERO SECTION MOBILE FIXES --- */
     .hero-section {
-        height: 500px; /* Gives the hero section proper vertical height on phone screens */
+        height: 500px;
         padding: 30px 5%;
     }
 
@@ -468,7 +540,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    /* Hide outer photos; keep ONLY the center edited photo visible */
     .collage-left, 
     .collage-right {
         display: none !important;
@@ -483,79 +554,299 @@ body {
 
     .collage-center .hero-pane-img {
         object-fit: cover;
-        object-position: center top; /* Keeps you in frame at the top center */
+        object-position: center top;
     }
 
     .hero-overlay {
-        display: none !important; /* Removes the dark box turning the screen black */
+        display: none !important;
     }
-    /* ---------------------------------- */
 
     .matrix-grid-triple {
         grid-template-columns: 1fr;
     }
+
     .carousel-card-item {
-        flex: 0 0 85% !important; /* On mobile devices, elements scale larger for swipe ease */
+        flex: 0 0 85% !important;
+    }
+}
+/* ==========================================================================
+   PROJECT PAGE LAYOUT & STICKY SKILLS SIDEBAR
+   ========================================================================== */
+.project-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 4% 0 4%; /* Top padding clears fixed nav */
+}
+
+/* Tighten the header container and force the border line up */
+.project-header-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 12px !important;
+}
+
+/* Remove default heading margins inside the project header */
+.project-header-section h1,
+.project-header-section .section-title {
+    margin-bottom: 6px !important;
+}
+
+.project-header-section p {
+    margin-bottom: 0 !important;
+}
+
+/* Pull the content grid line directly up against the header */
+.project-content-grid {
+    border-top: 1px solid #2b2d35;
+    padding-top: 20px !important; /* Reduced from 35px to pull content closer */
+    margin-top: 0 !important;
+}
+
+/* Sticky Skills Sidebar */
+.skills-sidebar-container {
+    position: sticky;
+    top: 75px; /* Distance from top when floating down */
+    padding-right: 30px;
+    border-right: 1px solid #334155; /* Vertical line separator */
+}
+
+.skills-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: #64748b;
+}
+
+.skills-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.skills-list li {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Right Main Content Area */
+.project-main-body {
+    min-height: 800px; /* Gives room to test the sticky scrolling */
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+/* Responsive collapse for tablet/mobile */
+@media (max-width: 868px) {
+    .project-content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .skills-sidebar-container {
+        position: relative;
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid #334155;
+        padding-right: 0;
+        padding-bottom: 25px;
     }
 }
 
-
 /* ==========================================================================
-   7. INTERACTIVE HORIZONTAL CAROUSEL SYSTEM
+   PROJECT PAGE STORY BLOCKS (Text + Photo Pairings)
    ========================================================================== */
-.showcase-column {
-    max-width: 100%;
-    overflow: hidden;
+.project-container {
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+    padding: 0 4%;
 }
 
-.carousel-stage-container {
-    width: 100%;
-    overflow: hidden;
-    background-color: #070709;
-    border: 1px solid #161e2b;
-    padding: 15px 15px;
-    position: relative;
-    box-sizing: border-box;
+.project-content-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 50px;
+    margin-top: 40px;
 }
 
-.carousel-scroll-track {
+.skills-sidebar-container {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+}
+
+.skills-heading {
+    font-size: 0.85rem;
+    color: #cc0000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.skills-list {
+    list-style: none;
     display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    width: 100%;
-    /* Forces physics-based desktop/mobile snapping mechanics */
-    scroll-snap-type: x mandatory; 
-    scrollbar-width: none; /* Hides tracking bars on Firefox */
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    gap: 8px;
+    color: #94a3b8;
+    font-size: 0.9rem;
 }
 
-.carousel-scroll-track::-webkit-scrollbar {
-    display: none; /* Hides tracking bars on Chrome, Safari, and Edge */
+/* Individual Story Block Rows */
+.project-main-body {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 }
 
-/* Base carousel cards adapt seamlessly into the grid column widths */
-.carousel-card-item {
-    flex: 0 0 calc(33.333% - 10px); 
-    min-width: 200px; /* Protects legible card sizes on smaller layout panels */
-    scroll-snap-align: start;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-sizing: border-box;
+.project-story-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+    background-color: #1a1c23;
+    border: 1px solid #1e293b;
+    padding: 24px;
+    border-radius: 15px;
 }
 
-.carousel-item-link {
-    text-decoration: none;
+/* Flips photo to the left on alternating rows */
+.project-story-block.image-left {
+    grid-template-areas: "img text";
+}
+
+.project-story-block.image-left .story-text {
+    grid-area: text;
+}
+
+.project-story-block.image-left .story-image-frame {
+    grid-area: img;
+}
+
+.story-text p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.story-signoff {
     display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: #cc0000;
+}
+
+/* Image Frame Container */
+/* Universal image frame styling for project story blocks */
+
+
+/* Forces both left and right block images to match completely */
+.story-img {
     width: 100%;
     height: 100%;
+    object-fit: contain; /* Prevents cropping */
+    padding: 12px;       /* Keeps uniform inner spacing */
+    box-sizing: border-box;
+    border-radius: 15px;  /* Adds a subtle corner radius */
 }
 
-/* Subtle feedback scale when interacting with specific targets */
-.carousel-card-item:hover {
-    transform: translateY(-2px);
+/* Responsive collapse for small screens */
+/* Responsive collapse for small screens */
+@media (max-width: 900px) {
+    .project-content-grid {
+        grid-template-columns: 1fr;
+        gap: 25px; /* Tightens space between header, sidebar, and body */
+    }
+    
+    /* Applied Skills Box - Mobile Tweaks */
+    .skills-sidebar-container {
+        position: static;           /* Removes sticky behavior on mobile */
+        top: auto;
+        padding-right: 0;
+        border-right: none;         /* Removes vertical separator line */
+        border-bottom: 1px solid #334155; /* Adds horizontal separator line instead */
+        padding-bottom: 20px;
+        
+        /* Solid background styling */
+        background-color: #1a1c23; 
+        border: 1px solid #1e293b;
+        padding: 16px 20px;
+        border-radius: 8px;
+    }
 }
 
-.carousel-card-item:hover .project-matrix-card {
-    border-color: #e11d48;
+/* ==========================================================================
+   VERTICAL CARDS WITH 3-PHOTO HORIZONTAL GALLERY
+   ========================================================================== */
+.project-story-block.vertical-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    padding: 24px;
 }
 
+/* Container for the 3 horizontal photos */
+.story-gallery-frame {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+}
 
+/* Individual gallery image styling */
+.gallery-img {
+    width: 100%;
+    height: 180px;            /* Uniform height container */
+    object-fit: contain;      /* Fits the entire image inside without cropping or zooming */
+    background-color: #111318; /* Dark background behind non-square images */
+    padding: 6px;             /* Breathing room around the uncropped image */
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #2b2d35;
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-img:hover {
+    transform: scale(1.02);   /* Subtle hover effect for visual pop */
+}
+
+.project-story-block.vertical-card .story-text {
+    width: 100%;
+    max-width: 700px;
+}
+
+.project-story-block.vertical-card .story-text p {
+    font-size: 0.98rem;
+    color: #cbd5e1;
+}
+
+/* Responsive adjustment for small/mobile screens */
+@media (max-width: 768px) {
+    .story-gallery-frame {
+        grid-template-columns: 1fr; /* Stacks images vertically on small mobile screens */
+    }
+    
+    .gallery-img {
+        height: 220px;
+    }
+
+    /* Mobile reordering rules */
+    .story-gallery-frame .gallery-img:nth-child(2) {
+        order: 1; /* Middle image goes to the top */
+    }
+
+    .story-gallery-frame .gallery-img:nth-child(1) {
+        order: 2; /* First image goes to the 2nd position */
+    }
+
+    .story-gallery-frame .gallery-img:nth-child(3) {
+        order: 3; /* Third image stays at the bottom */
+    }
+}
