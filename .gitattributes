@@ -1,3 +1,4 @@
 *.gif filter=lfs diff=lfs merge=lfs -text
+images/Projects/yokes/yoke5AxisCAM.gif !filter !diff !merge
 images/Projects/Weldon/GifOnMachine.gif !text !filter !merge !diff
 images/Projects/Weldon/GifOnMachine.gif filter=lfs diff=lfs merge=lfs -text
